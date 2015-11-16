@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Selecione o tipo de sorteio"
+            android:textColor="#9a5c16"
+            android:textSize="58px"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:weightSum="1"
+            android:layout_height="match_parent">
+
+            <ImageButton
+                android:id="@+id/dice"
+                android:layout_weight="0.5"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:onClick="onChooseDice"
+                android:src="@drawable/dices_button"
+                android:text="Dados"
+                android:layout_alignTop="@+id/jokenpo"
+                android:layout_alignEnd="@+id/textView"
+                android:background="#ffffff">
+            </ImageButton>
+
+            <ImageButton
+                android:id="@+id/jokenpo"
+                android:src="@drawable/jokenpo_button"
+                android:layout_weight="0.5"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:onClick="onChooseJokenpo"
+                android:background="#ffffff"
+                android:text="Jokenpo"
+                android:layout_centerVertical="true"
+                android:layout_alignStart="@+id/textView"
+                android:focusableInTouchMode="true"
+                android:clickable="false"
+                android:adjustViewBounds="false">
+            </ImageButton>
+
+        </LinearLayout>
+
+</LinearLayout>
