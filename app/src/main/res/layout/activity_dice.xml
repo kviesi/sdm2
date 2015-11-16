@@ -38,4 +38,13 @@
         android:layout_weight="0.4"
         android:id="@+id/faceimageview2" />
 
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/play"
+        android:text="Jogar!"
+        android:textColor="#727412"
+        android:textSize="64px"
+        android:background="#ffffff" />
+
 </LinearLayout>

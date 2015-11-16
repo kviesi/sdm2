@@ -19,4 +19,9 @@ public class SortActivity extends Activity {
         Intent dicesIntent = new Intent(this, DiceActivity.class);
         startActivity(dicesIntent);
     }
+
+    public void onChooseJokenpo(View v) {
+        Intent jokenpoIntent = new Intent(this, null);
+        startActivity(jokenpoIntent);
+    }
 }
