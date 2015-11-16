@@ -13,7 +13,7 @@
         android:layout_weight="0.1"
         android:id="@+id/player1"
         android:gravity="center"
-        android:text="Jogador 1"
+        android:text="@string/playerOne"
         android:textSize="48px"
         android:textIsSelectable="false" />
 
@@ -29,7 +29,7 @@
         android:gravity="center"
         android:layout_weight="0.1"
         android:id="@+id/player2"
-        android:text="Jogador 2"
+        android:text="@string/playerTwo"
         android:textSize="48px" />
 
     <ImageView
@@ -42,7 +42,8 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:id="@+id/play"
-        android:text="Jogar!"
+        android:onClick="onClickPlayButton"
+        android:text="@string/play"
         android:textColor="#727412"
         android:textSize="64px"
         android:background="#ffffff" />

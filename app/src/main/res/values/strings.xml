@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">JogosTabuleiro</string>
+    <string name="playerOne">Jogador 1</string>
+    <string name="playerTwo">Jogador 2</string>
+    <string name="playerOneWin">Jogador 1 venceu!</string>
+    <string name="playerTwoWin">Jogador 2 venceu!</string>
+    <string name="playerOneLose">Jogador 1 perdeu!</string>
+    <string name="playerTwoLose">Jogador 2 perdeu!</string>
+    <string name="playAgain">Jogar novamente =)</string>
+    <string name="play">Jogar!</string>
 </resources>

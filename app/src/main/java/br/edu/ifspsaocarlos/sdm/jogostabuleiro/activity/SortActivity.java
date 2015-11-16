@@ -21,7 +21,7 @@ public class SortActivity extends Activity {
     }
 
     public void onChooseJokenpo(View v) {
-        Intent jokenpoIntent = new Intent(this, null);
+        Intent jokenpoIntent = new Intent(this, JokenpoActivity.class);
         startActivity(jokenpoIntent);
     }
 }

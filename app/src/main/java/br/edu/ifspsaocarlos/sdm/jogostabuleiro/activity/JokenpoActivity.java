@@ -9,8 +9,7 @@ import br.edu.ifspsaocarlos.sdm.jogostabuleiro.domain.Jokenpo;
 //Responsavel pelo jokenpo
 public class JokenpoActivity extends BaseSortActivity {
 
-    public void onClickPlayButton(View v) {
-
+    public void clickPlayButtonHandle(View v) {
         Jokenpo.Item itemOne = Jokenpo.newInstance().play();
         Jokenpo.Item itemTwo = Jokenpo.newInstance().play();
 
@@ -24,8 +23,6 @@ public class JokenpoActivity extends BaseSortActivity {
         } else {
           setPlayerTwoWinner();
         }
-
-        playButton.setText("Jogar novamente!");
     }
 
     private int getImageIDBy(Jokenpo.Item item) {

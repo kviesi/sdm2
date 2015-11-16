@@ -40,26 +40,31 @@ public abstract class BaseSortActivity extends Activity {
     }
 
     protected void setNoWinner() {
-        playerOneTextView.setText("Jogador 1");
-        playerTwoTextView.setText("Jogador 2");
-        playerTwoTextView.setTextColor(Color.BLUE);
-        playerOneTextView.setTextColor(Color.BLUE);
+        playerOneTextView.setText(R.string.playerOne);
+        playerTwoTextView.setText(R.string.playerTwo);
+        playerTwoTextView.setTextColor(Color.GREEN);
+        playerOneTextView.setTextColor(Color.GREEN);
     }
 
     protected void setPlayerOneWinner() {
-        playerOneTextView.setText("Jogador 1 venceu!");
-        playerOneTextView.setTextColor(Color.RED);
-        playerTwoTextView.setText("Jogador 2 perdeu!");
-        playerTwoTextView.setTextColor(Color.BLUE);
+        playerOneTextView.setText(R.string.playerOneWin);
+        playerOneTextView.setTextColor(Color.BLUE);
+        playerTwoTextView.setText(R.string.playerTwoLose);
+        playerTwoTextView.setTextColor(Color.RED);
     }
 
     protected void setPlayerTwoWinner() {
-        playerOneTextView.setText("Jogador 1 perdeu!");
-        playerOneTextView.setTextColor(Color.RED);
-        playerTwoTextView.setText("Jogador 2 venceu!");
+        playerTwoTextView.setText(R.string.playerTwoWin);
         playerTwoTextView.setTextColor(Color.BLUE);
+        playerOneTextView.setText(R.string.playerOneLose);
+        playerOneTextView.setTextColor(Color.RED);
     }
 
-    public abstract void onClickPlayButton(View v);
+    public void onClickPlayButton(View v) {
+        clickPlayButtonHandle(v);
+        playButton.setText(R.string.playAgain);
+    }
+
+    protected abstract void clickPlayButtonHandle(View view);
 
 }

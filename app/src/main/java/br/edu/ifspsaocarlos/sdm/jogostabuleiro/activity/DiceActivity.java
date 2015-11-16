@@ -10,7 +10,7 @@ import br.edu.ifspsaocarlos.sdm.jogostabuleiro.domain.Dice;
 //Responsavel pelos dados
 public class DiceActivity extends BaseSortActivity {
 
-    public void onClickPlayButton(View v) {
+    public void clickPlayButtonHandle(View v) {
         Dice.Face playOneFace = Dice.newInstance().play();
         Dice.Face playTwoFace = Dice.newInstance().play();
 
@@ -22,10 +22,8 @@ public class DiceActivity extends BaseSortActivity {
         } else if (playOneFace.number() < playTwoFace.number()) {
             setPlayerTwoWinner();
         } else {
-            setNoWinner();;
+            setNoWinner();
         }
-
-        playButton.setText("Jogar novamente!");
     }
 
     private int getImageIDBy(Dice.Face face) {
