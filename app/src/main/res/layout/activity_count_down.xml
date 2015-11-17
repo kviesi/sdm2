@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="1">
+
+    <TextView
+        android:id="@+id/player1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.1"
+        android:background="#1c484a"
+        android:gravity="center"
+        android:text="@string/playerOne"
+        android:textColor="#ffffff"
+        android:textIsSelectable="false"
+        android:textSize="25dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/timerPlayer1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.4"
+        android:background="#1c484a"
+        android:gravity="center"
+        android:onClick="onClickPlayer1"
+        android:text="@string/play"
+        android:textIsSelectable="true"
+        android:textSize="55dp" />
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="2dp"
+        android:background="#222ba7" />
+
+    <TextView
+        android:id="@+id/player2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.1"
+        android:background="#1c484a"
+        android:gravity="center"
+        android:text="@string/playerTwo"
+        android:textColor="#ffffff"
+        android:textSize="25dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/timerPlayer2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.4"
+        android:background="#1c484a"
+        android:gravity="center"
+        android:onClick="onClickPlayer2"
+        android:text="@string/play"
+        android:textIsSelectable="true"
+        android:textSize="55dp" />
+
+</LinearLayout>

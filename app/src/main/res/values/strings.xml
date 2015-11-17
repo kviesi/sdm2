@@ -13,4 +13,6 @@
     <string name="looser">perdeu!</string>
     <string name="sortWith">Sortear com: </string>
     <string name="or">Ou</string>
+    <string name="contadores">Contadores</string>
+    <string name="sorteios">Sorteios</string>
 </resources>
