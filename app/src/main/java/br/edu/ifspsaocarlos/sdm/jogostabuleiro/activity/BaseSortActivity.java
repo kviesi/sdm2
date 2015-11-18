@@ -1,6 +1,7 @@
 package br.edu.ifspsaocarlos.sdm.jogostabuleiro.activity;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -39,8 +40,9 @@ public abstract class BaseSortActivity extends Activity {
 
         playButton = (Button) findViewById(R.id.play);
 
-        //playerOneName = savedInstanceState.getString(SortActivity.PLAYER_ONE_NAME);
-        //playerTwoName = savedInstanceState.getString(SortActivity.PLAYER_TWO_NAME);
+        Intent sortIntent = getIntent();
+        playerOneName = sortIntent.getCharSequenceExtra(SortActivity.PLAYER_ONE_NAME).toString();
+        playerTwoName = sortIntent.getCharSequenceExtra(SortActivity.PLAYER_TWO_NAME).toString();
 
         this.onClickPlayButton(playButton);
     }
@@ -53,22 +55,28 @@ public abstract class BaseSortActivity extends Activity {
     }
 
     protected void setPlayerOneWinner() {
-        playerOneTextView.setText(playerOneName + " venceu!");
-        playerOneTextView.setTextColor(Color.BLUE);
-        playerTwoTextView.setText(playerTwoName + " perdeu!");
-        playerTwoTextView.setTextColor(Color.RED);
+        winLabel(playerOneTextView, playerOneName);
+        loseLabel(playerTwoTextView, playerTwoName);
     }
 
     protected void setPlayerTwoWinner() {
-        playerTwoTextView.setText(playerTwoName + " venceu!");
-        playerTwoTextView.setTextColor(Color.BLUE);
-        playerOneTextView.setText(playerOneName + " perdeu!");
-        playerOneTextView.setTextColor(Color.RED);
+        winLabel(playerTwoTextView, playerTwoName);
+        loseLabel(playerOneTextView, playerOneName);
     }
 
     public void onClickPlayButton(View v) {
         clickPlayButtonHandle(v);
         playButton.setText(R.string.playAgain);
+    }
+
+    protected void winLabel(TextView textView, String player) {
+        textView.setText(player + " " + getResources().getString(R.string.winner));
+        textView.setTextColor(Color.BLUE);
+    }
+
+    protected void loseLabel(TextView textView, String player) {
+        textView.setText(player + " " + getResources().getString(R.string.looser));
+        textView.setTextColor(Color.RED);
     }
 
     protected abstract void clickPlayButtonHandle(View view);

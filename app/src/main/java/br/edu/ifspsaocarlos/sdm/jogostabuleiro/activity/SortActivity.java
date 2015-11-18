@@ -71,7 +71,6 @@ public class SortActivity extends Activity {
             return false;
         }
 
-        //TODO: validar passagem de parametro
         intent.putExtra(PLAYER_ONE_NAME, playerOneName);
         intent.putExtra(PLAYER_TWO_NAME, playerTwoName);
         return true;
@@ -86,7 +85,7 @@ public class SortActivity extends Activity {
 
     private void resetLabel(TextView textView, int labelID) {
         textView.setText(getResources().getString(labelID));
-        //TODO: checar cores para resetar
+        textView.setTextColor(Color.BLACK);
     }
 
     private boolean isBlank(String value) {

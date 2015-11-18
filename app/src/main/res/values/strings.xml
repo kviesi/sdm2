@@ -9,4 +9,8 @@
     <string name="playAgain">Jogar novamente =)</string>
     <string name="play">Jogar!</string>
     <string name="nameRequired">Informe o nome!</string>
+    <string name="winner">venceu!</string>
+    <string name="looser">perdeu!</string>
+    <string name="sortWith">Sortear com: </string>
+    <string name="or">Ou</string>
 </resources>
