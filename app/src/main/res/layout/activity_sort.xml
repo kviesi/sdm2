@@ -5,40 +5,74 @@
     android:layout_height="fill_parent"
     android:orientation="vertical">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Selecione o tipo de sorteio"
-            android:textColor="#9a5c16"
-            android:textSize="58px"
-            android:textStyle="bold" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Digite o nome dos jogadores: "
+        android:textColor="#9a5c16"
+        android:textSize="58px"
+        android:textStyle="bold" />
 
-        <LinearLayout
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#9a5c16"
+        android:text="Jogador 1"
+        android:textSize="36px"
+        android:id="@+id/player1input" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/player1edit" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#9a5c16"
+        android:textSize="36px"
+        android:text="Jogador 2"
+        android:id="@+id/player2input" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/player2edit" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="Selecione o tipo de sorteio: "
+        android:textColor="#9a5c16"
+        android:textSize="58px"
+        android:textStyle="bold" />
+
+    <LinearLayout
             android:layout_width="match_parent"
             android:orientation="vertical"
-            android:weightSum="1"
+            android:weightSum="0.5"
             android:layout_height="match_parent">
 
-            <ImageButton
+        <ImageButton
                 android:id="@+id/dice"
-                android:layout_weight="0.5"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:onClick="onChooseDice"
                 android:src="@drawable/dices_button"
                 android:text="Dados"
                 android:layout_alignTop="@+id/jokenpo"
                 android:layout_alignEnd="@+id/textView"
-                android:background="#ffffff">
+                android:background="#ffffff"
+            android:layout_weight="0.25">
             </ImageButton>
 
-            <ImageButton
+        <ImageButton
                 android:id="@+id/jokenpo"
                 android:src="@drawable/jokenpo_button"
-                android:layout_weight="0.5"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
+                android:layout_weight="0.25"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:onClick="onChooseJokenpo"
                 android:background="#ffffff"
                 android:text="Jokenpo"

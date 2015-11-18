@@ -62,6 +62,10 @@ public class Dice extends SortMethod<Dice.Face> {
         public int number() {
             return number;
         }
+
+        public boolean win(Face o) {
+            return this.number() > o.number();
+        }
     }
 
 }

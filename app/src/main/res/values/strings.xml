@@ -8,4 +8,5 @@
     <string name="playerTwoLose">Jogador 2 perdeu!</string>
     <string name="playAgain">Jogar novamente =)</string>
     <string name="play">Jogar!</string>
+    <string name="nameRequired">Informe o nome!</string>
 </resources>

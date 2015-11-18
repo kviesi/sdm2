@@ -23,10 +23,13 @@ public abstract class BaseSortActivity extends Activity {
 
     protected Button playButton;
 
+    protected String playerOneName;
+    protected String playerTwoName;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dice);
+        setContentView(R.layout.activity_base_sort);
 
         faceImageViewOne = (ImageView) findViewById(R.id.faceimageview1);
         faceImageViewTwo = (ImageView) findViewById(R.id.faceimageview2);
@@ -36,27 +39,30 @@ public abstract class BaseSortActivity extends Activity {
 
         playButton = (Button) findViewById(R.id.play);
 
+        //playerOneName = savedInstanceState.getString(SortActivity.PLAYER_ONE_NAME);
+        //playerTwoName = savedInstanceState.getString(SortActivity.PLAYER_TWO_NAME);
+
         this.onClickPlayButton(playButton);
     }
 
     protected void setNoWinner() {
-        playerOneTextView.setText(R.string.playerOne);
-        playerTwoTextView.setText(R.string.playerTwo);
+        playerOneTextView.setText(playerOneName);
+        playerTwoTextView.setText(playerTwoName);
         playerTwoTextView.setTextColor(Color.GREEN);
         playerOneTextView.setTextColor(Color.GREEN);
     }
 
     protected void setPlayerOneWinner() {
-        playerOneTextView.setText(R.string.playerOneWin);
+        playerOneTextView.setText(playerOneName + " venceu!");
         playerOneTextView.setTextColor(Color.BLUE);
-        playerTwoTextView.setText(R.string.playerTwoLose);
+        playerTwoTextView.setText(playerTwoName + " perdeu!");
         playerTwoTextView.setTextColor(Color.RED);
     }
 
     protected void setPlayerTwoWinner() {
-        playerTwoTextView.setText(R.string.playerTwoWin);
+        playerTwoTextView.setText(playerTwoName + " venceu!");
         playerTwoTextView.setTextColor(Color.BLUE);
-        playerOneTextView.setText(R.string.playerOneLose);
+        playerOneTextView.setText(playerOneName + " perdeu!");
         playerOneTextView.setTextColor(Color.RED);
     }
 

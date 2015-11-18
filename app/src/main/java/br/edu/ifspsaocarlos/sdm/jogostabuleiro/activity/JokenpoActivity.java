@@ -33,6 +33,6 @@ public class JokenpoActivity extends BaseSortActivity {
         } else if (item == Jokenpo.Item.SCISSORS) {
             return R.drawable.jkpscissors;
         }
-        throw new IllegalArgumentException("Item not mapped.");
+        throw new IllegalArgumentException("Item image not mapped.");
     }
 }

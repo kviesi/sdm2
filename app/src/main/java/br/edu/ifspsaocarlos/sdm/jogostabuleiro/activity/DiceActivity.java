@@ -17,12 +17,12 @@ public class DiceActivity extends BaseSortActivity {
         faceImageViewOne.setImageResource(getImageIDBy(playOneFace));
         faceImageViewTwo.setImageResource(getImageIDBy(playTwoFace));
 
-        if (playOneFace.number() > playTwoFace.number()) {
-            setPlayerOneWinner();
-        } else if (playOneFace.number() < playTwoFace.number()) {
-            setPlayerTwoWinner();
-        } else {
+        if (playOneFace == playTwoFace) {
             setNoWinner();
+        } else if (playOneFace.win(playTwoFace)) {
+            setPlayerOneWinner();
+        } else {
+            setPlayerTwoWinner();
         }
     }
 
