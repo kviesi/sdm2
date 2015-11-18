@@ -23,6 +23,8 @@ public class CountDownActivity extends AppCompatActivity {
     private final long startTime = 30 * 1000;
     private final String backgroudColor = "#1c484a";
 
+    private boolean isPlayer1Active = Boolean.FALSE;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,55 +33,49 @@ public class CountDownActivity extends AppCompatActivity {
         timerPlayer1 = (TextView) findViewById(R.id.timerPlayer1);
         timerPlayer2 = (TextView) findViewById(R.id.timerPlayer2);
 
-        Long startP1 = null;
-        Long startP2 = null;
-        if (savedInstanceState != null) {
-            startP1 = savedInstanceState.getLong("countDownPlayer1");
-            startP2 = savedInstanceState.getLong("countDownPlayer2");
-        }
-
-        if (startP1 == null) {
-            countDownPlayer1 = new CountDown(startTime, timerPlayer1);
-            countDownPlayer2 = new CountDown(startTime, timerPlayer2);
-        } else {
-            countDownPlayer1 = new CountDown(startP1, timerPlayer1);
-            countDownPlayer2 = new CountDown(startP2, timerPlayer2);
-        }
+        countDownPlayer1 = new CountDown(startTime, timerPlayer1);
+        countDownPlayer2 = new CountDown(startTime, timerPlayer2);
     }
 
     @Override
     public void onSaveInstanceState(Bundle savedInstanceState) {
         super.onSaveInstanceState(savedInstanceState);
 
-        savedInstanceState.putLong("countDownPlayer1", countDownPlayer1.getTimeUntilFinish());
-        savedInstanceState.putLong("countDownPlayer2", countDownPlayer2.getTimeUntilFinish());
+        savedInstanceState.putLong("startP1", countDownPlayer1.getTimeUntilFinish());
+        savedInstanceState.putLong("startP2", countDownPlayer2.getTimeUntilFinish());
+        savedInstanceState.putBoolean("isPlayer1Active", isPlayer1Active);
     }
 
     @Override
     public void onRestoreInstanceState(Bundle savedInstanceState) {
-        Long startP1 = null;
-        Long startP2 = null;
-        if (savedInstanceState != null) {
-            startP1 = savedInstanceState.getLong("countDownPlayer1");
-            startP2 = savedInstanceState.getLong("countDownPlayer2");
-        }
 
-        if (startP1 == null) {
+        Long startP1 = savedInstanceState.getLong("startP1");
+        Long startP2 = savedInstanceState.getLong("startP2");
+        isPlayer1Active = savedInstanceState.getBoolean("isPlayer1Active");
+
+        if (startP1 == null || startP1 == 0) {
             countDownPlayer1 = new CountDown(startTime, timerPlayer1);
-            countDownPlayer2 = new CountDown(startTime, timerPlayer2);
         } else {
             countDownPlayer1 = new CountDown(startP1, timerPlayer1);
+        }
+
+        if (startP2 == null || startP2 == 0) {
+            countDownPlayer2 = new CountDown(startTime, timerPlayer2);
+        } else {
             countDownPlayer2 = new CountDown(startP2, timerPlayer2);
         }
 
+        if (isPlayer1Active) {
+            countDownPlayer1.start();
+        } else {
+            countDownPlayer2.start();
+        }
+
         super.onRestoreInstanceState(savedInstanceState);
-
-//        countDownPlayer1 = (CountDown) savedInstanceState.getSerializable("countDownPlayer1");
-//        countDownPlayer2 = (CountDown) savedInstanceState.getSerializable("countDownPlayer1");
-
     }
 
     public void onClickPlayer1(View view) {
+        isPlayer1Active = Boolean.FALSE;
         timerPlayer1.setText(toHourMinuteAndSecond(startTime));
         timerPlayer1.setClickable(false);
         countDownPlayer1.cancel();
@@ -89,6 +85,7 @@ public class CountDownActivity extends AppCompatActivity {
     }
 
     public void onClickPlayer2(View view) {
+        isPlayer1Active = Boolean.TRUE;
         timerPlayer2.setText(toHourMinuteAndSecond(startTime));
         timerPlayer2.setClickable(false);
         countDownPlayer2.cancel();
