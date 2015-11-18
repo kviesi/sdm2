@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
+import java.io.Serializable;
 import java.util.concurrent.TimeUnit;
 
 import br.edu.ifspsaocarlos.sdm.jogostabuleiro.R;
@@ -20,7 +21,6 @@ public class CountDownActivity extends AppCompatActivity {
     private TextView timerPlayer2;
 
     private final long startTime = 30 * 1000;
-    private final long interval = 1 * 1000;
     private final String backgroudColor = "#1c484a";
 
     @Override
@@ -31,8 +31,52 @@ public class CountDownActivity extends AppCompatActivity {
         timerPlayer1 = (TextView) findViewById(R.id.timerPlayer1);
         timerPlayer2 = (TextView) findViewById(R.id.timerPlayer2);
 
-        countDownPlayer1 = new CountDown(startTime, interval, timerPlayer1);
-        countDownPlayer2 = new CountDown(startTime, interval, timerPlayer2);
+        Long startP1 = null;
+        Long startP2 = null;
+        if (savedInstanceState != null) {
+            startP1 = savedInstanceState.getLong("countDownPlayer1");
+            startP2 = savedInstanceState.getLong("countDownPlayer2");
+        }
+
+        if (startP1 == null) {
+            countDownPlayer1 = new CountDown(startTime, timerPlayer1);
+            countDownPlayer2 = new CountDown(startTime, timerPlayer2);
+        } else {
+            countDownPlayer1 = new CountDown(startP1, timerPlayer1);
+            countDownPlayer2 = new CountDown(startP2, timerPlayer2);
+        }
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        super.onSaveInstanceState(savedInstanceState);
+
+        savedInstanceState.putLong("countDownPlayer1", countDownPlayer1.getTimeUntilFinish());
+        savedInstanceState.putLong("countDownPlayer2", countDownPlayer2.getTimeUntilFinish());
+    }
+
+    @Override
+    public void onRestoreInstanceState(Bundle savedInstanceState) {
+        Long startP1 = null;
+        Long startP2 = null;
+        if (savedInstanceState != null) {
+            startP1 = savedInstanceState.getLong("countDownPlayer1");
+            startP2 = savedInstanceState.getLong("countDownPlayer2");
+        }
+
+        if (startP1 == null) {
+            countDownPlayer1 = new CountDown(startTime, timerPlayer1);
+            countDownPlayer2 = new CountDown(startTime, timerPlayer2);
+        } else {
+            countDownPlayer1 = new CountDown(startP1, timerPlayer1);
+            countDownPlayer2 = new CountDown(startP2, timerPlayer2);
+        }
+
+        super.onRestoreInstanceState(savedInstanceState);
+
+//        countDownPlayer1 = (CountDown) savedInstanceState.getSerializable("countDownPlayer1");
+//        countDownPlayer2 = (CountDown) savedInstanceState.getSerializable("countDownPlayer1");
+
     }
 
     public void onClickPlayer1(View view) {
@@ -61,13 +105,17 @@ public class CountDownActivity extends AppCompatActivity {
     }
 
 
-    public class CountDown extends CountDownTimer {
+    public class CountDown extends CountDownTimer implements Serializable {
+
+        private static final long serialVersionUID = 7455734982142331027L;
 
         private TextView timerPlayer;
         private Color lastColor;
 
-        public CountDown(long startTime, long interval, TextView timerPlayer) {
-            super(startTime, interval);
+        private long timeUntilFinish;
+
+        public CountDown(long startTime, TextView timerPlayer) {
+            super(startTime, 1 * 1000);
             this.timerPlayer = timerPlayer;
         }
 
@@ -83,11 +131,19 @@ public class CountDownActivity extends AppCompatActivity {
                 if ((millis / 1000) % 2 == 0) {
                     timerPlayer.setBackgroundColor(Color.RED);
                 } else {
-                    timerPlayer.setBackgroundColor(Color.parseColor("#333333"));
+                    timerPlayer.setBackgroundColor(Color.parseColor(backgroudColor));
                 }
             }
             this.timerPlayer.setText(toHourMinuteAndSecond(millis));
+            timeUntilFinish = millis;
+        }
+
+        public void setTimerPlayer(TextView timerPlayer) {
+            this.timerPlayer = timerPlayer;
+        }
+
+        public long getTimeUntilFinish() {
+            return timeUntilFinish;
         }
     }
-
 }
