@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">JogosTabuleiro</string>
+    <string name="app_name">Jogos Tabuleiro</string>
     <string name="playerOne">Jogador 1</string>
     <string name="playerTwo">Jogador 2</string>
     <string name="playerOneWin">Jogador 1 venceu!</string>

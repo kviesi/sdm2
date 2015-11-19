@@ -1,50 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:weightSum="1">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
 
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.1"
-        android:id="@+id/player1"
-        android:gravity="center"
-        android:text="@string/playerOne"
-        android:textSize="48px"
-        android:textIsSelectable="false" />
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="1">
 
-    <ImageView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.4"
-        android:id="@+id/faceimageview1" />
+        <TextView
+            android:id="@+id/player1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1"
+            android:gravity="center"
+            android:text="@string/playerOne"
+            android:textIsSelectable="false"
+            android:textSize="23dp" />
 
-    <TextView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:layout_weight="0.1"
-        android:id="@+id/player2"
-        android:text="@string/playerTwo"
-        android:textSize="48px" />
+        <ImageView
+            android:id="@+id/faceimageview1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.4" />
 
-    <ImageView
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.4"
-        android:id="@+id/faceimageview2" />
+        <TextView
+            android:id="@+id/player2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1"
+            android:gravity="center"
+            android:text="@string/playerTwo"
+            android:textSize="23dp" />
 
-    <Button
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/play"
-        android:onClick="onClickPlayButton"
-        android:text="@string/play"
-        android:textColor="#727412"
-        android:textSize="64px"
-        android:background="#ffffff" />
+        <ImageView
+            android:id="@+id/faceimageview2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.4" />
 
-</LinearLayout>
+        <Button
+            android:id="@+id/play"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="#ffffff"
+            android:onClick="onClickPlayButton"
+            android:text="@string/play"
+            android:textColor="#727412"
+            android:textSize="32dp" />
+
+    </LinearLayout>
+</ScrollView>
