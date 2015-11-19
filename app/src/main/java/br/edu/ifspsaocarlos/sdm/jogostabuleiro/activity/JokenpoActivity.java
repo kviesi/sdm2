@@ -1,6 +1,5 @@
 package br.edu.ifspsaocarlos.sdm.jogostabuleiro.activity;
 
-import android.graphics.Color;
 import android.view.View;
 
 import br.edu.ifspsaocarlos.sdm.jogostabuleiro.R;
@@ -10,12 +9,15 @@ import br.edu.ifspsaocarlos.sdm.jogostabuleiro.domain.Jokenpo;
 public class JokenpoActivity extends BaseSortActivity {
 
     public void clickPlayButtonHandle(View v) {
+        //Recupera uma gesto aleatorio para cada jogador
         Jokenpo.Item itemOne = Jokenpo.newInstance().play();
         Jokenpo.Item itemTwo = Jokenpo.newInstance().play();
 
-        faceImageViewOne.setImageResource(getImageIDBy(itemOne));
-        faceImageViewTwo.setImageResource(getImageIDBy(itemTwo));
+        //mostra imagem de acordo com gesto sorteado
+        sortImageViewOne.setImageResource(getImageIDBy(itemOne));
+        sortImageViewTwo.setImageResource(getImageIDBy(itemTwo));
 
+        //verifica quem ganhou ou empatou
         if (itemOne == itemTwo) {
             setNoWinner();
         } else if (itemOne.win(itemTwo)) {

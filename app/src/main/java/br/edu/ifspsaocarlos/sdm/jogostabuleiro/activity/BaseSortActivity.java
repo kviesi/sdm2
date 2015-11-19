@@ -16,8 +16,8 @@ import br.edu.ifspsaocarlos.sdm.jogostabuleiro.R;
  */
 public abstract class BaseSortActivity extends Activity {
 
-    protected ImageView faceImageViewOne;
-    protected ImageView faceImageViewTwo;
+    protected ImageView sortImageViewOne;
+    protected ImageView sortImageViewTwo;
 
     protected TextView playerOneTextView;
     protected TextView playerTwoTextView;
@@ -32,14 +32,15 @@ public abstract class BaseSortActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base_sort);
 
-        faceImageViewOne = (ImageView) findViewById(R.id.faceimageview1);
-        faceImageViewTwo = (ImageView) findViewById(R.id.faceimageview2);
+        sortImageViewOne = (ImageView) findViewById(R.id.faceimageview1);
+        sortImageViewTwo = (ImageView) findViewById(R.id.faceimageview2);
 
         playerOneTextView = (TextView) findViewById(R.id.player1);
         playerTwoTextView = (TextView) findViewById(R.id.player2);
 
         playButton = (Button) findViewById(R.id.play);
 
+        //recupera dados da tela de selecionar sorteio
         Intent sortIntent = getIntent();
         playerOneName = sortIntent.getCharSequenceExtra(SortActivity.PLAYER_ONE_NAME).toString();
         playerTwoName = sortIntent.getCharSequenceExtra(SortActivity.PLAYER_TWO_NAME).toString();
@@ -47,6 +48,8 @@ public abstract class BaseSortActivity extends Activity {
         this.onClickPlayButton(playButton);
     }
 
+
+    //mosta empate na tela
     protected void setNoWinner() {
         playerOneTextView.setText(playerOneName);
         playerTwoTextView.setText(playerTwoName);
@@ -54,11 +57,13 @@ public abstract class BaseSortActivity extends Activity {
         playerOneTextView.setTextColor(Color.GREEN);
     }
 
+    //exibe jogador um como vencedor
     protected void setPlayerOneWinner() {
         winLabel(playerOneTextView, playerOneName);
         loseLabel(playerTwoTextView, playerTwoName);
     }
 
+    //exibe jogador dois como vencedor
     protected void setPlayerTwoWinner() {
         winLabel(playerTwoTextView, playerTwoName);
         loseLabel(playerOneTextView, playerOneName);
@@ -69,16 +74,19 @@ public abstract class BaseSortActivity extends Activity {
         playButton.setText(R.string.playAgain);
     }
 
+    //exibe o nome do jogador com a label de vencedor
     protected void winLabel(TextView textView, String player) {
         textView.setText(player + " " + getResources().getString(R.string.winner));
         textView.setTextColor(Color.BLUE);
     }
 
+    //exibe o nome do jogador com a label de perdedor
     protected void loseLabel(TextView textView, String player) {
         textView.setText(player + " " + getResources().getString(R.string.looser));
         textView.setTextColor(Color.RED);
     }
 
+    //classes filhas herdam e implementam esse metodo (template method)
     protected abstract void clickPlayButtonHandle(View view);
 
 }

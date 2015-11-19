@@ -1,22 +1,23 @@
 package br.edu.ifspsaocarlos.sdm.jogostabuleiro.activity;
 
-
-import android.graphics.Color;
 import android.view.View;
 
 import br.edu.ifspsaocarlos.sdm.jogostabuleiro.R;
 import br.edu.ifspsaocarlos.sdm.jogostabuleiro.domain.Dice;
 
-//Responsavel pelos dados
+//Responsavel pelos sorteio com dados
 public class DiceActivity extends BaseSortActivity {
 
     public void clickPlayButtonHandle(View v) {
+        //Recupera uma face do lado aleatoria para cada jogador
         Dice.Face playOneFace = Dice.newInstance().play();
         Dice.Face playTwoFace = Dice.newInstance().play();
 
-        faceImageViewOne.setImageResource(getImageIDBy(playOneFace));
-        faceImageViewTwo.setImageResource(getImageIDBy(playTwoFace));
+        //exibe uma imagem de acordo com a face sorteada
+        sortImageViewOne.setImageResource(getImageIDBy(playOneFace));
+        sortImageViewTwo.setImageResource(getImageIDBy(playTwoFace));
 
+        //verifica quem ganhou ou empatou
         if (playOneFace == playTwoFace) {
             setNoWinner();
         } else if (playOneFace.win(playTwoFace)) {

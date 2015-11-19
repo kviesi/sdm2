@@ -33,6 +33,7 @@ public class SortActivity extends Activity {
         playerTwoEditText = (EditText) findViewById(R.id.player2edit);
     }
 
+    //Usuario seleciona sortear com dados
     public void onChooseDice(View v) {
         Intent dicesIntent = new Intent(this, DiceActivity.class);
         if (tryPutExtras(dicesIntent)) {
@@ -40,6 +41,7 @@ public class SortActivity extends Activity {
         }
     }
 
+    //Usuario seleciona sortear com jokempo
     public void onChooseJokenpo(View v) {
         Intent jokenpoIntent = new Intent(this, JokenpoActivity.class);
         if (tryPutExtras(jokenpoIntent)) {
@@ -47,6 +49,8 @@ public class SortActivity extends Activity {
         }
     }
 
+    //Recupera os dados do input dos nomes do jogadores, verifica se possuem valor e caso sim,
+    //coloca o valor nos extras da intent de sorteio.
     public boolean tryPutExtras(Intent intent) {
         String playerTwoName = playerTwoEditText.getText().toString();
         String playerOneName = playerOneEditText.getText().toString();
@@ -76,6 +80,7 @@ public class SortActivity extends Activity {
         return true;
     }
 
+    //Mostra mensagem de erro caso nao seja informado valor para campo texto.
     private void displayError(TextView textView, int messageID) {
         if (!textView.getText().toString().contains("-")) {
             textView.setText(textView.getText() + " - " + getResources().getString(messageID));
@@ -83,11 +88,13 @@ public class SortActivity extends Activity {
         }
     }
 
+    //Volta a label para estado inicial
     private void resetLabel(TextView textView, int labelID) {
         textView.setText(getResources().getString(labelID));
         textView.setTextColor(Color.BLACK);
     }
 
+    //Verifica se nao eh nulo ou vazio apenas com espaco.
     private boolean isBlank(String value) {
         return value == null || value.trim().isEmpty();
     }

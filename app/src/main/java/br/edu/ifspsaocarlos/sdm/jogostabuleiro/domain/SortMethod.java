@@ -11,15 +11,16 @@ public abstract class SortMethod<T> {
 
     private static int lastRandom = NOT_INITIALIZED;
 
+    //Recupera um valor randomico para sorteio
     public final T play() {
         int newRandom = NOT_INITIALIZED;
-        if (isInitialized()) {
-            newRandom = getNewNumberWithoutRepeat();
+        if (isInitialized()) { //Caso ja tenha sido jogado outras vezes
+            newRandom = getNewNumberWithoutRepeat(); //garante que nao venha valores repetidos em sequencia
         } else {
-            newRandom = getNewNumber();
+            newRandom = getNewNumber(); // recupera um numero novo
         }
-        store(newRandom);
-        return getValueBy(newRandom);
+        store(newRandom); //armazena na memoria para verificar repeticao
+        return getValueBy(newRandom); //chama metodo abstrato onde cada classe filha vai retornar um valor
     }
 
     private boolean isInitialized() {
@@ -38,20 +39,26 @@ public abstract class SortMethod<T> {
         SortMethod.lastRandom = value;
     }
 
+    //Calcula numero randomico de acordo com preferencias de cada classe filha
     private int getNewNumber() {
         int random = new Random().nextInt(maxNumberRandom() + 1);
-        if (random <= minNumberRandom()) {
-            random = minNumberRandom();
+        int minRandom = minNumberRandom();
+        if (random <= minRandom) {
+            random = minRandom;
         }
-        if (random > maxNumberRandom()) {
-            random = maxNumberRandom();
+        int maxRandom = maxNumberRandom();
+        if (random > maxRandom) {
+            random = maxRandom;
         }
         return random;
     }
 
+    //Retorna tipo generico para numero sorteado
     protected abstract T getValueBy(int random);
 
+    //Random maximo que podera ser retornado
     protected abstract int maxNumberRandom();
 
+    //Random minimo que poderia ser retornado
     protected abstract int minNumberRandom();
 }

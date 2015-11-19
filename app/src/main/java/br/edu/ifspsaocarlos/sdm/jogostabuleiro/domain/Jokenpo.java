@@ -31,6 +31,7 @@ public class Jokenpo extends SortMethod<Jokenpo.Item> {
         return 2;
     }
 
+    //Gestos do jogo
     public enum Item {
 
         ROCK{
@@ -61,6 +62,7 @@ public class Jokenpo extends SortMethod<Jokenpo.Item> {
             }
         };
 
+        //Dado um item, verifica se o atual ganha dele.
         public abstract boolean win(Item o);
 
     }

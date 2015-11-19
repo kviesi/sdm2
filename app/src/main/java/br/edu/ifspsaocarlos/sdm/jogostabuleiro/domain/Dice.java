@@ -26,6 +26,7 @@ public class Dice extends SortMethod<Dice.Face> {
         return 1;
     }
 
+    //Representa a face de um dado
     public enum Face {
 
         ONE(1),
@@ -63,6 +64,7 @@ public class Dice extends SortMethod<Dice.Face> {
             return number;
         }
 
+        //dado uma face verifica se a atual eh maior que ela.
         public boolean win(Face o) {
             return this.number() > o.number();
         }
