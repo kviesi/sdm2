@@ -29,10 +29,6 @@ public class CountDownPlayer {
         return view;
     }
 
-    public void setActive(boolean isActive) {
-        this.isActive = isActive;
-    }
-
     public boolean isActive() {
         return isActive;
     }

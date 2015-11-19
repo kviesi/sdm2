@@ -19,6 +19,7 @@ public class CountDownActivity extends AppCompatActivity {
 
     public static final String BACKGROUND_COLOR = "#1c484a";
     public static final String LOSE_BACKGROUND_COLOR = "#FFC4AEB4";
+    public static final String LOSE_TEXT = "Perdeu!";
 
     private static final long START_TIME = 30 * 1000;
 
@@ -170,7 +171,10 @@ public class CountDownActivity extends AppCompatActivity {
      * @param millis    - tempo restante para conclusao do termometro
      */
     private static void onTick(CountDown countDown, CountDownPlayer player, long millis) {
+        //informa o tempo até o fim do cronometro
         countDown.setTimeUntilFinish(millis);
+
+        //Se estiver no final do cronometro, faltando 10seg., a tela ficará piscando para dar um alerta
         if (millis < 11 * 1000) {
             if ((millis / 1000) % 2 == 0) {
                 player.getView().setBackgroundColor(Color.RED);
@@ -178,6 +182,8 @@ public class CountDownActivity extends AppCompatActivity {
                 player.getView().setBackgroundColor(Color.parseColor(CountDownActivity.BACKGROUND_COLOR));
             }
         }
+
+        //informar a tela que o tempo se alterou
         ((TextView) player.getView()).setText(CountDownActivity.toHourMinuteAndSecond(millis));
     }
 
@@ -188,7 +194,7 @@ public class CountDownActivity extends AppCompatActivity {
      */
     private static void onFinish(CountDownPlayer player) {
         player.getView().setBackgroundColor(Color.parseColor(CountDownActivity.LOSE_BACKGROUND_COLOR));
-        ((TextView) player.getView()).setText("PERDEU!");
+        ((TextView) player.getView()).setText(LOSE_TEXT);
     }
 
     /**
