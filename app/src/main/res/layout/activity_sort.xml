@@ -11,7 +11,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Digite o nome dos jogadores: "
+            android:text="@string/inputNames"
             android:textColor="#9a5c16"
             android:textSize="28dp"
             android:textStyle="bold" />
@@ -20,7 +20,7 @@
             android:id="@+id/player1input"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Jogador 1"
+            android:text="@string/playerOne"
             android:textColor="#000000"
             android:textSize="18dp" />
 
@@ -33,7 +33,7 @@
             android:id="@+id/player2input"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Jogador 2"
+            android:text="@string/playerTwo"
             android:textColor="#000000"
             android:textSize="18dp" />
 

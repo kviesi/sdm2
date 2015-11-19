@@ -15,4 +15,5 @@
     <string name="or">Ou</string>
     <string name="contadores">Contadores</string>
     <string name="sorteios">Sorteios</string>
+    <string name="inputNames">Digite o nome dos jogadores: </string>
 </resources>
