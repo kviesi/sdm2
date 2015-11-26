@@ -4,6 +4,7 @@ import android.view.View;
 
 import br.edu.ifspsaocarlos.sdm.jogostabuleiro.R;
 import br.edu.ifspsaocarlos.sdm.jogostabuleiro.domain.Dice;
+import br.edu.ifspsaocarlos.sdm.jogostabuleiro.domain.Historic;
 
 //Responsavel pelos sorteio com dados
 public class DiceActivity extends BaseSortActivity {
@@ -21,8 +22,16 @@ public class DiceActivity extends BaseSortActivity {
         if (playOneFace == playTwoFace) {
             setNoWinner();
         } else if (playOneFace.win(playTwoFace)) {
+
+            //armazena vencedor no historico
+            Historic.store(new Historic.RankItem(playerOneName, playerTwoName, Historic.RankItem.Type.DICES));
+
             setPlayerOneWinner();
         } else {
+
+            //armazena vencedor no historico
+            Historic.store(new Historic.RankItem(playerTwoName, playerOneName, Historic.RankItem.Type.DICES));
+
             setPlayerTwoWinner();
         }
     }

@@ -94,6 +94,12 @@ public class SortActivity extends Activity {
         textView.setTextColor(Color.BLACK);
     }
 
+    //Abre tela com historico
+    public void seeHistoric(View view) {
+        Intent intent = new Intent(this, HistoricActivity.class);
+        startActivity(intent);
+    }
+
     //Verifica se nao eh nulo ou vazio apenas com espaco.
     private boolean isBlank(String value) {
         return value == null || value.trim().isEmpty();

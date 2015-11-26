@@ -4,6 +4,7 @@ import android.view.View;
 
 import br.edu.ifspsaocarlos.sdm.jogostabuleiro.R;
 import br.edu.ifspsaocarlos.sdm.jogostabuleiro.domain.Jokenpo;
+import br.edu.ifspsaocarlos.sdm.jogostabuleiro.domain.Historic;
 
 //Responsavel pelo jokenpo
 public class JokenpoActivity extends BaseSortActivity {
@@ -21,8 +22,16 @@ public class JokenpoActivity extends BaseSortActivity {
         if (itemOne == itemTwo) {
             setNoWinner();
         } else if (itemOne.win(itemTwo)) {
+
+            //armazena vencedor no historico
+            Historic.store(new Historic.RankItem(playerOneName, playerTwoName, Historic.RankItem.Type.JOKEMPO));
+
             setPlayerOneWinner();
         } else {
+
+            //armazena vencedor no historico
+            Historic.store(new Historic.RankItem(playerTwoName, playerOneName, Historic.RankItem.Type.JOKEMPO));
+
           setPlayerTwoWinner();
         }
     }

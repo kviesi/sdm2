@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import br.edu.ifspsaocarlos.sdm.jogostabuleiro.R;
+import br.edu.ifspsaocarlos.sdm.jogostabuleiro.domain.Historic;
 
 /**
  * Created by gustavo on 17/11/15.
@@ -26,5 +27,11 @@ public class MenuActivity extends Activity {
     public void onClickSort(View view) {
         Intent iCount = new Intent(this, SortActivity.class);
         startActivity(iCount);
+    }
+
+    @Override
+    protected void onDestroy() {
+        Historic.clear();
+        super.onDestroy();
     }
 }

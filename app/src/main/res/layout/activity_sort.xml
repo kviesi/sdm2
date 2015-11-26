@@ -94,6 +94,14 @@
                 android:src="@drawable/jokenpo_button"
                 android:text="Jokenpo"></ImageButton>
 
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/historic_button"
+                android:id="@+id/historicButton"
+                android:onClick="seeHistoric"
+                android:layout_weight="0.20" />
+
         </LinearLayout>
 
     </LinearLayout>

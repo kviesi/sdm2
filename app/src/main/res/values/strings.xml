@@ -16,4 +16,11 @@
     <string name="contadores">Contadores</string>
     <string name="sorteios">Sorteios</string>
     <string name="inputNames">Digite o nome dos jogadores: </string>
+    <string name="historic_dices">dados</string>
+    <string name="historic_jokempo">jokempo</string>
+    <string name="historic_sort">sorteio</string>
+    <string name="historic_empty">Nenhnum historico registrado.</string>
+    <string name="historic_in">no</string>
+    <string name="historic_win">venceu</string>
+    <string name="historic_button">Ver Historico</string>
 </resources>
